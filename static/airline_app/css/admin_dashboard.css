@@ -1,0 +1,78 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+   background: url('{% static "airline_app/images/flight1.png" %}');
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Bar */
+header {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 10px 0;
+    color: white;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+header .nav-links li {
+    margin-left: 20px;
+}
+
+header .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header .nav-links li a:hover {
+    color: #e67e22;
+}
+
+/* Main Content */
+.content {
+    flex-grow: 1;
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+}
+
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}

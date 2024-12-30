@@ -1,0 +1,199 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: url('../images/background.png') no-repeat center center/cover;
+}
+
+/* Left Section with Form */
+.left-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* Right Section with Image */
+.right-section {
+  flex: 1;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Wrapper with Border */
+.wrapper {
+   /* Slight white background */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  padding: 30px 40px;
+  width: 100%;
+  border: 2px solid #e67e22; /* Add border with matching theme color */
+  border-radius: 10px; /* Rounded corners */
+  max-width: 498px; /* Set max width */
+  height: 86%; /* Relative height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 28px; /* Slightly larger heading */
+  font-weight: bold;
+  margin-bottom: 56px;
+}
+
+/* Input Fields */
+.input-field {
+  position: relative;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 18px; /* Increased padding for better spacing */
+  font-size: 20px; /* Larger font size for better visibility */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field input:focus {
+  border-color: #e67e22;
+  box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 18px; /* Increased label size */
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label {
+  top: -12px;
+  left: 10px;
+  font-size: 16px;
+  color: #e67e22;
+  background: white;
+  padding: 0 5px;
+}
+
+/* Forget Section */
+.forget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.forget input {
+  margin-right: 5px;
+}
+
+.forget a {
+  color: #e67e22;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forget a:hover {
+  color: #d35400;
+}
+
+/* Submit Button */
+button {
+  background: #e67e22;
+  color: white;
+  border: none;
+  padding: 18px; /* Increased button padding */
+  font-size: 20px; /* Larger button text */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 30px;
+}
+
+button:hover {
+  background: #d35400;
+}
+
+/* Register Section */
+.register {
+  text-align: center;
+  font-size: 16px;
+}
+
+.register a {
+  color: #e67e22;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.register a:hover {
+  color: #d35400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .left-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .right-section {
+    display: none;
+  }
+
+  .wrapper {
+    padding: 20px;
+    max-width: 90%; /* Adjust for small screens */
+    height: auto; /* Allow flexible height */
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .input-field input {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 15px;
+  }
+}
