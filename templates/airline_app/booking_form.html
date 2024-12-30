@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Book Flight</title>
+    <link rel="stylesheet" href="{% static 'airline_app/css/confirm_booking.css' %}">
+
+    <script>
+        function updatePassengerFields() {
+            const numPassengers = document.getElementById("num_passengers").value;
+            const container = document.getElementById("passenger_fields");
+            container.innerHTML = "";
+    
+            for (let i = 0; i < numPassengers; i++) {
+                container.innerHTML += `
+                    <div>
+                        <label>Passenger ${i + 1} Name:</label>
+                        <input type="text" name="passenger_name_${i}" required>
+                        <label>Passport No:</label>
+                        <input type="text" name="passport_no_${i}" required>
+                        <label>ID Card No:</label>
+                        <input type="text" name="id_card_no_${i}" required>
+                        
+                    </div>
+                `;
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <h1>Book Flight: {{ flight.flight_number }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Number of Passengers:</label>
+        <input type="number" id="num_passengers" name="num_passengers" value="1" min="0" onchange="updatePassengerFields()" required>
+        <div id="passenger_fields"></div>
+        <button type="submit">Confirm Booking</button>
+    </form>
+</body>
+</html>

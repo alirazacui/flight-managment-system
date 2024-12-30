@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'airline_app/css/home.css' %}">
+  <script src="{% static 'airline_app/js/homescript.js' %}"></script>
+</head>
+<body>
+  <!-- Left Section -->
+  <div class="left-section"></div>
+
+  <!-- Right Section with Form -->
+  <div class="right-section">
+    <div class="wrapper">
+      <h2 id="login-title">Customer Login</h2>
+
+      <!-- Toggle Buttons -->
+      <div class="toggle-buttons">
+        <button id="customer-btn" class="active">Customer</button>
+        <button id="admin-btn">Admin</button>
+      </div>
+
+      <!-- Login Form -->
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <!-- Username Field -->
+        <div class="input-field">
+          <input type="text" name="username" required placeholder=" ">
+          <label>Enter your username</label>
+        </div>
+        <!-- Password Field -->
+        <div class="input-field">
+          <input type="password" name="password" required placeholder=" ">
+          <label>Enter your password</label>
+        </div>
+        <!-- Remember Me and Forgot Password -->
+        <div class="forget">
+          <label for="remember">
+            <input type="checkbox" id="remember" name="remember_me">
+            <p>Remember me</p>
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit">Log In</button>
+        <!-- Register Link -->
+        <div class="register">
+          <p>Don't have an account? 
+            <a href="{% url 'register' %}">Register</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

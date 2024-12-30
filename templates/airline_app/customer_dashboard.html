@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'airline_app/css/customerdash_board.css' %}">
+    <!-- Google Fonts and FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">Airline Dashboard</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#flights">My Flights</a></li>
+                    <li><a href="{% url 'customer_booking' %}">book flight</a></li>
+                    <li><a href="#logout">view flight</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: url('{% static 'airline_app/images/dashboardimg.png' %}') no-repeat center center/cover;">
+        <div class="hero-content">
+            <h1>Welcome Back, Customer!</h1>
+            <p>Your journey starts here. Book flights, check your bookings, and more!</p>
+            <a href="#flights" class="btn-primary">Explore Flights</a>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards" id="flights">
+        <div class="container">
+            <h2>check it out </h2>
+            <div class="card-wrapper">
+                <!-- Example Card -->
+                <div class="card">
+                    <img src="{% static 'airline_app/images/flight1.jpg' %}" alt="Flight Image">
+                    <div class="card-content">
+                        <h3>Flight Number: QA123</h3>
+                        <p>Origin: Karachi - Destination: Doha</p>
+                        <p>Date: 2024-06-15</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Duplicate for more flights -->
+                <div class="card">
+                    <img src="{% static 'airline_app/images/flight2.jpg' %}" alt="Flight Image">
+                    <div class="card-content">
+                        <h3>Flight Number: QA456</h3>
+                        <p>Origin: Islamabad - Destination: Dubai</p>
+                        <p>Date: 2024-06-20</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'airline_app/images/flight3.jpg' %}" alt="Flight Image">
+                    <div class="card-content">
+                        <h3>Flight Number: QA456</h3>
+                        <p>Origin: Islamabad - Destination: Dubai</p>
+                        <p>Date: 2024-06-20</p>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Airline Dashboard. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

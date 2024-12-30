@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger List for Flight {{ flight.flight_number }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'airline_app/css/admin_view_passengers.css' %}">
+</head>
+<body>
+    <h1>Passenger List for Flight {{ flight.flight_number }}</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Passenger Name</th>
+                <th>Seat Number</th>
+                <th>Passport Number</th>
+                <th>ID Card Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for passenger in passengers %}
+                <tr>
+                    <td>{{ passenger.name }}</td>
+                    <td>{{ passenger.seat_number }}</td>
+                    <td>{{ passenger.passport_number }}</td>
+                    <td>{{ passenger.id_card_number }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No passengers found for this flight.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bookings</title>
+    <link rel="stylesheet" href="{% static 'airline_app/css/view_booking.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Bookings</h1>
+        {% if bookings %}
+            <ul class="bookings-list">
+                {% for booking in bookings %}
+                    <li class="booking-item">
+                        <h2>Booking: {{ booking.pnr }}</h2>
+                        <p><strong>Flight:</strong> {{ booking.flight.flight_number }} ({{ booking.flight.origin }} → {{ booking.flight.destination }})</p>
+                        <p><strong>Date:</strong> {{ booking.flight.departure_date }}</p>
+                        <p><strong>Passengers:</strong></p>
+                        <ul>
+                            {% for passenger in booking.passengers.all %}
+                                <li>
+                                    <p><strong>Name:</strong> {{ passenger.name }}</p>
+                                    <p><strong>Passport No:</strong> {{ passenger.passport_number }}</p>
+                                    <p><strong>ID Card No:</strong> {{ passenger.id_card_number }}</p>
+                                    <p><strong>Seat No:</strong> {{ passenger.seat_number }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        
+                        <p><strong>Booking Date:</strong> {{ booking.created_at }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no bookings yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

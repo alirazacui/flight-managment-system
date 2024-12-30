@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'airline_app/css/admin_dashboard.css' %}">
+</head>
+<style>
+    body {
+        background: url("{% static 'airline_app/images/dashboardimg.png' %}") no-repeat center center/cover;
+        color: #333;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Navigation Bar */
+    header {
+        background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        padding: 10px 0;
+        color: white;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+        position: relative;
+    }
+
+    .nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .nav-links li a:hover {
+        color: #e67e22;
+    }
+
+    /* Dropdown Menu Styling */
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        list-style: none;
+        padding: 10px 0;
+        display: none;
+        z-index: 10;
+    }
+
+    .dropdown li {
+        padding: 10px 20px;
+    }
+
+    .dropdown li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .dropdown li a:hover {
+        color: #e67e22;
+    }
+
+    /* Show dropdown on hover */
+    .nav-links li:hover .dropdown {
+        display: block;
+    }
+
+    /* Main Content */
+    .content {
+        flex-grow: 1;
+        text-align: center;
+        padding: 50px 20px;
+        color: white;
+    }
+
+    .content h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .content p {
+        font-size: 18px;
+    }
+
+    /* Footer */
+    footer {
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">Airline Admin Dashboard</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#manage-flights">Manage Flights</a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown">
+                            <li><a href="{% url 'add_flight' %}">Add Flight</a></li>
+                            <li><a href="{% url 'edit_flights' %}">Edit Flight</a></li>
+                            <li><a href="{% url 'delete_flights' %}">Delete Flight</a></li>
+                            <li><a href="{% url 'view_flights' %}">View Flights</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#user-management">User Management</a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown">
+                            <li><a href="{% url 'view_customers' %}">View Customers</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#ticket-management">Ticket Management</a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown">
+                            <li><a href="{% url 'admin_view_flights' %}">Booking Overview</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'home' %}">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h2>Welcome to the Admin Dashboard</h2>
+        <p>Here you can manage flights, users, and tickets.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Airline Management. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

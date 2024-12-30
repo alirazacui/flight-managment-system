@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'airline_app/css/add_flight.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Add a New Flight</h1>
+    </header>
+    
+    <section class="form-container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="flight_number">Flight Number:</label>
+                <input type="text" id="flight_number" name="flight_number" placeholder="e.g., AI-202" required>
+            </div>
+
+            <div class="form-group">
+                <label for="origin">Origin:</label>
+                <input type="text" id="origin" name="origin" placeholder="e.g., New York" required>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" placeholder="e.g., Los Angeles" required>
+            </div>
+
+            <div class="form-group">
+                <label for="departure_time">Departure Time:</label>
+                <input type="datetime-local" id="departure_time" name="departure_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival_time">Arrival Time:</label>
+                <input type="datetime-local" id="arrival_time" name="arrival_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="available_seats">Available Seats:</label>
+                <input type="number" id="available_seats" name="available_seats" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fare">Fare (USD):</label>
+                <input type="number" id="fare" name="fare" step="0.01" min="0" placeholder="e.g., 200.50" required>
+            </div>
+
+            <button type="submit">Add Flight</button>
+        </form>
+    </section>
+</body>
+</html>

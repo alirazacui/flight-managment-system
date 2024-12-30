@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'airline_app/css/booking_sucsess.css' %}">
+</head>
+<body>
+    <h2>Booking Confirmed: {{ booking.PNR }}</h2>
+<p>Flight: {{ booking.flight.flight_number }}</p>
+<p>Passengers:</p>
+<ul>
+    {% for passenger in passengers %}
+        <li>{{ passenger.name }} - Seat: {{ passenger.seat_number }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
